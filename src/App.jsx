@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
 import { Login } from './components/Login.jsx'
-// This is the primary component
+import { AddWebsite } from './components/AddWebsite.jsx'
+
 class App extends Component {
 
   render() {
 
     return (
       <Login />
+      // <AddWebsite />
+
     );
   }
 }
