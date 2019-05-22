@@ -10,7 +10,10 @@ export class Login extends Component {
         <h2 className="LoginTitle"> Login </h2>
         <input className="LoginInputField" name="username" onChange={this.handleTextBoxChange} placeholder="User Name" />
         <input className="LoginInputField" name="password" onChange={this.handleTextBoxChange} placeholder="Password" />
-        <button className="LoginButton" onClick={this.handleLoginClick}>Login</button>
+        <div className="SubmitBox">
+        <button className="LoginButton" onClick={this.handleLoginClick}>Submit</button>
+        <p className="EmailText"> Forgot Email? </p>
+        </div>
         </div>
         <LoginImage />
       </div>

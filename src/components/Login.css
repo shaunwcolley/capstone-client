@@ -3,7 +3,7 @@
   flex-direction: column;
   margin-left: 10%;
   margin-right: 60%;
-  margin-top: 25%;
+  margin-top: 15%;
 }
 
 .LoginInputField {
@@ -19,15 +19,15 @@
 
 .LoginButton {
   text-align: center;
-  margin-left: 25%;
-  margin-right: 50%;
-  padding: 10px;
+  width: 100px;
+  padding: 5px;
   margin-top: 8px;
   border-radius: 20px;
   border-style: solid;
   border-width: thin;
   background-color: #5D68FE;
   color: white;
+  height: 25px;
 }
 
 .LoginTitle {
@@ -48,6 +48,10 @@
 
 .LoginImage {
   max-width: 100%;
-  height: 800px;
+  height: 720px;
+}
 
+.EmailText {
+  font-size: 12px;
+  margin-top: 5%;
 }
