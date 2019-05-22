@@ -12,7 +12,7 @@ export class AddWebsite extends Component {
         <input className="WebsiteInputField" name="password" onChange={this.handleTextBoxChange} placeholder="URL" />
         <div className="SubmitBox">
         <p> Cancel </p>
-        <button className="AddButton" onClick={this.handleLoginClick}>Submit</button>
+        <button className="AddButton" onClick={this.handleSubmitClick}>Submit</button>
         </div>
         </div>
       </div>
