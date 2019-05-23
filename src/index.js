@@ -5,6 +5,7 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import BaseLayout from './components/BaseLayout';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
+import Dashboard from './components/Dashboard';
 import {Login} from './components/Login.jsx'
 
 ReactDOM.render(
@@ -16,7 +17,7 @@ ReactDOM.render(
                 <Route path='/' exact component={App} />
                 {/* <Route path='/login' component={Login} />
                 <Route path='/dashboard' component={Dashboard} />
-                <Route path='/addwebsite' component={AddWebsite} /> */}
+                {/* <Route path='/addwebsite' component={AddWebsite} /> */}
 
         </Switch>
     </BaseLayout>
