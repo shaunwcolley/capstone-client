@@ -23,10 +23,15 @@ li {
 .wayfinder {
     display: flex;
     position: absolute;
-    left: 100px;
+    left: 175px;
 }
 .logout {
     display: flex;
     position: absolute;
-    right: 100px;
+    right: 175px;
 }
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%
+  }
