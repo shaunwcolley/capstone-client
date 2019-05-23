@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import StatBar from './StatBar';
+
 import './Dashboard.css';
 
 class Dashboard extends Component {
@@ -10,14 +12,14 @@ class Dashboard extends Component {
                     <div className='filter-button'>
                         <div className='filter-website-button'>
                         <p>Filter:</p>
-                        <button className='add-button'>+ Add Website</button>
+                        <button className='add-button'><Link to='addwebsite'>+ Add Website</Link></button>
                         </div>
                     <div className='column-placement'>
                     <div className='column-titles'>
-                        <p className='title'>PERFORMANCE</p>
-                        <p className='title'>SEO</p>
-                        <p className='title'>ACCESSIBILITY</p>
-                        <p className='title'>BEST PRACTICES</p>
+                        <p className='performance'>PERFORMANCE</p>
+                        <p className='seo'>SEO</p>
+                        <p className='accessibilty'>ACCESSIBILITY</p>
+                        <p className='best-practices'>BEST PRACTICES</p>
                     </div>
                     </div>
                 <StatBar />

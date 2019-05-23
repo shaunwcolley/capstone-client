@@ -1,12 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import BaseLayout from './components/BaseLayout';
-import {BrowserRouter, Route, Switch} from 'react-router-dom';
+import { AddWebsite } from './components/AddWebsite';
 import Dashboard from './components/Dashboard';
-import {Login} from './components/Login.jsx'
+import { Login } from './components/Login';
 
 ReactDOM.render(
 
@@ -14,10 +15,10 @@ ReactDOM.render(
     <BaseLayout>
         <Switch>
 
-                <Route path='/' exact component={App} />
-                {/* <Route path='/login' component={Login} />
+                {/* <Route path='/' exact component={App} /> */}
+                <Route exact path='/login' component={Login} />
                 <Route path='/dashboard' component={Dashboard} />
-                {/* <Route path='/addwebsite' component={AddWebsite} /> */}
+                <Route path='/addwebsite' component={AddWebsite} />
 
         </Switch>
     </BaseLayout>

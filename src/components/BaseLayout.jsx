@@ -13,7 +13,6 @@ class BaseLayout extends Component {
         return(
             <div>
                 <Menu />
-                <Dashboard />
                 {this.props.children}
             </div>
         )
