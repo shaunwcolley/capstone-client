@@ -6,19 +6,20 @@ import * as serviceWorker from './serviceWorker';
 import BaseLayout from './components/BaseLayout';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import Dashboard from './components/Dashboard';
+import {Login} from './components/Login.jsx'
 
 ReactDOM.render(
 
 <BrowserRouter>
     <BaseLayout>
         <Switch>
-            
-                {/* <Route path='/' exact component={App} />
-                <Route path='/login' component={Login} /> */}
+
+                <Route path='/' exact component={App} />
+                {/* <Route path='/login' component={Login} />
                 <Route path='/dashboard' component={Dashboard} />
                 {/* <Route path='/addwebsite' component={AddWebsite} /> */}
 
-        </Switch> 
+        </Switch>
     </BaseLayout>
 </BrowserRouter>
 
