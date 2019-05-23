@@ -7,8 +7,24 @@
 .column-titles {
     display: flex;
 }
-.title {
+/* .title {
     padding-right: 15px;
+} */
+.performance {
+    display: flex;
+    padding-left: 340px;
+}
+.seo {
+    display: flex;
+    padding-left: 100px;
+}
+.accessibility {
+    display: flex;
+    padding-left: 150px;
+}
+.best-practices {
+    display: flex;
+    padding-left: 70px;
 }
 .filter-add-website-row {
     display: flex;

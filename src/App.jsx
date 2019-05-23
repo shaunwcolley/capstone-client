@@ -8,10 +8,18 @@ class App extends Component {
   render() {
 
     return (
+<<<<<<< HEAD
+      <div></div>
+      // <Login />
+      // <AddWebsite />
+
+    )
+=======
       //<Login />
       // <AddWebsite />
       <Test />
     );
+>>>>>>> master
   }
 }
 
