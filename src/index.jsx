@@ -5,7 +5,7 @@ import { ApolloClient } from 'apollo-client';
 import { HttpLink } from 'apollo-link-http';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { InMemoryCache } from 'apollo-cache-inmemory';
-import { AddWebsite } from './components/AddWebsite'
+import AddWebsite  from './components/AddWebsite';
 
 import BaseLayout from './components/BaseLayout';
 import Dashboard from './components/Dashboard';
