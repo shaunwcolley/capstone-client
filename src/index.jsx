@@ -29,9 +29,9 @@ ReactDOM.render(
       <BaseLayout>
           <Switch>
             <Route path='/' exact component={App} />
-              {/* <Route path='/login' component={Login} />
+              <Route path='/login' component={Login} />
                 <Route path='/dashboard' component={Dashboard} />
-                {/* <Route path='/addwebsite' component={AddWebsite} /> */}
+                <Route path='/addwebsite' component={AddWebsite} />
           </Switch>
         </BaseLayout>
       </BrowserRouter>
