@@ -12,11 +12,11 @@
 } */
 .performance {
     display: flex;
-    padding-left: 340px;
+    padding-left: 305px;
 }
 .seo {
     display: flex;
-    padding-left: 100px;
+    padding-left: 130px;
 }
 .accessibilty {
     display: flex;
@@ -24,7 +24,7 @@
 }
 .best-practices {
     display: flex;
-    padding-left: 70px;
+    padding-left: 80px;
 }
 .filter-add-website-row {
     display: flex;
