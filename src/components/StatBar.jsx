@@ -54,7 +54,7 @@ class StatBar extends Component {
                     <div className="column-style">
                       <div className="desktop-info">
                         <p className="stat-style">
-                          {desktop.performance * 100} 
+                          {desktop.performance * 100}
                               %
                         </p>
                         <p className="stat-style">Desktop</p>

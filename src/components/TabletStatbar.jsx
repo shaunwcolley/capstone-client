@@ -3,6 +3,8 @@ import Breakpoint from 'react-socks';
 import { Query } from 'react-apollo';
 import gql from 'graphql-tag';
 import './MobileStatBar.css';
+import './ResponsiveStatBar.css';
+
 
 const GET_STATS = gql`
     query {
@@ -21,16 +23,17 @@ const GET_STATS = gql`
     }
 `;
 
-class MobileStatBar extends Component {
+class TabletStatBar extends Component {
   render() {
     return (
+
       <Query query={GET_STATS}>
         {({ data, loading, error }) => {
           if (loading) return <p>loading...</p>;
           if (error) return <p>error...</p>;
           const { stats } = data;
-          const mobileStats = stats.filter(stat => {return stat.method === 'mobile'})
-          const desktopStats = stats.filter(stat => {return stat.method === 'desktop'})
+          const mobileStats = stats.filter(stat => {return stat.method === 'mobile';});
+          const desktopStats = stats.filter(stat => {return stat.method === 'desktop';});
           const methodStats = [];
           for (let i = 0; i < desktopStats.length; i++) {
             const tempArray = [];
@@ -44,7 +47,8 @@ class MobileStatBar extends Component {
           const reports = methodStats.map((stat) => {
             const { desktop, mobile } = stat[0];
             return (
-              <Breakpoint small down>
+                <div className="tablet-flex">
+                    <Breakpoint medium only>
                 <div className="MobileStatbar">
                   <p className="site-url">{desktop.website.url}</p>
                   <p className="last-report">{desktop.time_fetch}</p>
@@ -56,14 +60,14 @@ class MobileStatBar extends Component {
                           <div className="stats">
                             <p className="stat-style">
                               {desktop.performance * 100}
-                        %
+                          %
                             </p>
                             <p className="stat-style">Desktop</p>
                           </div>
                           <div className="stats">
                             <p className="stat-style">
                               {mobile.performance * 100}
-                        %
+                          %
                             </p>
                             <p className="stat-style">Mobile</p>
                           </div>
@@ -75,14 +79,14 @@ class MobileStatBar extends Component {
                           <div className="stats">
                             <p className="stat-style">
                               {desktop.seo * 100}
-                        %
+                          %
                             </p>
                             <p className="stat-style">Desktop</p>
                           </div>
                           <div className="stats">
                             <p className="stat-style">
                               {mobile.seo * 100}
-                        %
+                          %
                             </p>
                             <p className="stat-style">Mobile</p>
                           </div>
@@ -96,14 +100,14 @@ class MobileStatBar extends Component {
                           <div className="stats">
                             <p className="stat-style">
                               {desktop.accessibility * 100}
-                        %
+                          %
                             </p>
                             <p className="stat-style">Desktop</p>
                           </div>
                           <div className="stats">
                             <p className="stat-style">
                               {mobile.accessibility * 100}
-                        %
+                          %
                             </p>
                             <p className="stat-style">Mobile</p>
                           </div>
@@ -115,14 +119,14 @@ class MobileStatBar extends Component {
                           <div className="stats">
                             <p className="stat-style">
                               {desktop.best_practices * 100}
-                        %
+                          %
                             </p>
                             <p className="stat-style">Desktop</p>
                           </div>
                           <div className="stats">
                             <p className="stat-style">
                               {mobile.best_practices * 100}
-                        %
+                          %
                             </p>
                             <p className="stat-style">Mobile</p>
                           </div>
@@ -132,6 +136,8 @@ class MobileStatBar extends Component {
                   </div>
                 </div>
               </Breakpoint>
+                </div>
+              
             );
           });
           return (
@@ -145,4 +151,4 @@ class MobileStatBar extends Component {
     );
   }
 }
-export default MobileStatBar;
+export default TabletStatBar;

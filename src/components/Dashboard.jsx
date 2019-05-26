@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import StatBar from './StatBar';
 import ResponsiveStatBar from './ResponsiveStatBar';
-
-import './Dashboard.css';
-import Example from './Example';
 import MobileStatBar from './MobileStatBar';
+import TabletStatBar from './TabletStatbar';
+import './Dashboard.css';
+
 
 
 class Dashboard extends Component {
@@ -30,6 +30,8 @@ class Dashboard extends Component {
             </div>
             <StatBar />
             </div> */}
+            <MobileStatBar />
+            <TabletStatBar />
             <ResponsiveStatBar />
             {/* <Example /> */}
         </div>
