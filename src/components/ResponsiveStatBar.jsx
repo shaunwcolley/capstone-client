@@ -21,200 +21,116 @@ const GET_STATS = gql`
     }
 `;
 
-
-
 class ResponsiveStatBar extends Component {
   render() {
     return (
 
-
-
-
-      <div className="stat-bar-margin">
-        <Breakpoint small down>
-          <div className="MobileStatbar">
-          <p className="site-url">https://www.Reallylongurladdress.io</p>
-          <p className="last-report">Last Report: 3/24/19</p>
-          <div className="all-four-stats">
-              <div className="top-stat-row">
-                <div className="top-left-stat-quandant">
-                  <p className="stat-name">PERFORMANCE</p>
-                  <div className="desktop-mobile">
-                    <div className="stats">
-                      <p className="stat-style">97%</p>
-                      <p className="stat-style">Desktop</p>
-                    </div>
-                    <div className="stats">
-                      <p className="stat-style">56%</p>
-                      <p className="stat-style">Mobile</p>
-                    </div>
-                  </div>
-                </div>
-                <div className="stat-quandant">
-                  <p className="stat-name">SEO</p>
-                  <div className="desktop-mobile">
-                    <div className="stats">
-                      <p className="stat-style">97%</p>
-                      <p className="stat-style">Desktop</p>
-                    </div>
-                    <div className="stats">
-                      <p className="stat-style">56%</p>
-                      <p className="stat-style">Mobile</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="stat-row">
-                <div className="bottom-left-stat-quandant">
-                  <p className="stat-name">ACCESSIBILITY</p>
-                  <div className="desktop-mobile">
-                    <div className="stats">
-                      <p className="stat-style">97%</p>
-                      <p className="stat-style">Desktop</p>
-                    </div>
-                    <div className="stats">
-                      <p className="stat-style">56%</p>
-                      <p className="stat-style">Mobile</p>
-                    </div>
-                  </div>
-                </div>
-                <div className="bottom-right-stat-quandant">
-                  <p className="stat-name">BEST PRACTICES</p>
-                  <div className="desktop-mobile">
-                    <div className="stats">
-                      <p className="stat-style">97%</p>
-                      <p className="stat-style">Desktop</p>
-                    </div>
-                    <div className="stats">
-                      <p className="stat-style">56%</p>
-                      <p className="stat-style">Mobile</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-        </div>
-        </Breakpoint>
-
-        <Breakpoint medium only>
-          <div className="tablet-flex">
-            <div className="MobileStatbar">
-            <p className="site-url">https://www.Reallylongurladdress.io</p>
-            <p className="last-report">Last Report: 3/24/19</p>
-            <div className="all-four-stats">
-              <div className="top-stat-row">
-                <div className="top-left-stat-quandant">
-                  <p className="stat-name">PERFORMANCE</p>
-                  <div className="desktop-mobile">
-                    <div className="stats">
-                      <p className="stat-style">97%</p>
-                      <p className="stat-style">Desktop</p>
-                    </div>
-                    <div className="stats">
-                      <p className="stat-style">56%</p>
-                      <p className="stat-style">Mobile</p>
-                    </div>
-                  </div>
-                </div>
-                <div className="stat-quandant">
-                  <p className="stat-name">SEO</p>
-                  <div className="desktop-mobile">
-                    <div className="stats">
-                      <p className="stat-style">97%</p>
-                      <p className="stat-style">Desktop</p>
-                    </div>
-                    <div className="stats">
-                      <p className="stat-style">56%</p>
-                      <p className="stat-style">Mobile</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="stat-row">
-                <div className="bottom-left-stat-quandant">
-                  <p className="stat-name">ACCESSIBILITY</p>
-                  <div className="desktop-mobile">
-                    <div className="stats">
-                      <p className="stat-style">97%</p>
-                      <p className="stat-style">Desktop</p>
-                    </div>
-                    <div className="stats">
-                      <p className="stat-style">56%</p>
-                      <p className="stat-style">Mobile</p>
-                    </div>
-                  </div>
-                </div>
-                <div className="bottom-right-stat-quandant">
-                  <p className="stat-name">BEST PRACTICES</p>
-                  <div className="desktop-mobile">
-                    <div className="stats">
-                      <p className="stat-style">97%</p>
-                      <p className="stat-style">Desktop</p>
-                    </div>
-                    <div className="stats">
-                      <p className="stat-style">56%</p>
-                      <p className="stat-style">Mobile</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          </div>
-        </Breakpoint>
-
-        <Breakpoint large up>
+      <Query query={GET_STATS}>
+        {({ data, loading, error }) => {
+          if (loading) return <p>loading...</p>;
+          if (error) return <p>error...</p>;
+          const { stats } = data;
+          const mobileStats = stats.filter(stat => {return stat.method === 'mobile'})
+          const desktopStats = stats.filter(stat => {return stat.method === 'desktop'})
+          const methodStats = [];
+          for (let i = 0; i < desktopStats.length; i++) {
+            const tempArray = [];
+            for (let j = 0; j < mobileStats.length; j++) {
+              if (desktopStats[i].website_id === mobileStats[j].website_id) {
+                tempArray.push({ desktop: desktopStats[i], mobile: mobileStats[j] });
+              }
+            }
+            methodStats.push(tempArray);
+          }
+          const reports = methodStats.map((stat) => {
+            const { desktop, mobile } = stat[0];
+            return (
+              <div className="stat-bar-margin">
+                <Breakpoint large up>
           <div className="stat-bar">
             <div className="site-info">
-              <p className="site-url">https://www.Reallylongurladdress.io</p>
-              <p className="last-report">Last Report: 3/24/19</p>
+              <p className="site-url">{desktop.website.url}</p>
+              <p className="last-report">{desktop.time_fetch}</p>
             </div>
             <div className="stat-display">
               <div className="column-style">
                 <div className="desktop-info">
-                  <p className="stat-style">97%</p>
+                  <p className="stat-style">
+                    {desktop.performance * 100}
+                    %
+                  </p>
                   <p className="stat-style">Desktop</p>
                 </div>
                 <div className="mobile-info">
-                  <p className="stat-style">96%</p>
+                  <p className="stat-style">
+                    {mobile.performance * 100}
+                    %
+                  </p>
                   <p className="stat-style">Mobile</p>
                 </div>
               </div>
               <div className="column-style">
                 <div className="desktop-info">
-                  <p className="stat-style">86%</p>
+                  <p className="stat-style">
+                    {desktop.seo * 100}
+                    %
+                  </p>
                   <p className="stat-style">Desktop</p>
                 </div>
                 <div className="mobile-info">
-                  <p className="stat-style">85%</p>
+                  <p className="stat-style">
+                    {mobile.seo * 100}
+                    %
+                  </p>
                   <p className="stat-style">Mobile</p>
                 </div>
               </div>
               <div className="column-style">
                 <div className="desktop-info">
-                  <p className="stat-style">97%</p>
+                  <p className="stat-style">
+                    {desktop.accessibility * 100}
+                    %
+                  </p>
                   <p className="stat-style">Desktop</p>
                 </div>
                 <div className="mobile-info">
-                  <p className="stat-style">36%</p>
+                  <p className="stat-style">
+                    {mobile.accessibility * 100}
+                    %
+                  </p>
                   <p className="stat-style">Mobile</p>
                 </div>
               </div>
               <div className="last-column-style">
                 <div className="desktop-info">
-                  <p className="stat-style">97%</p>
+                  <p className="stat-style">
+                    {desktop.best_practices * 100}
+                    %
+                  </p>
                   <p className="stat-style">Desktop</p>
                 </div>
                 <div className="mobile-info">
-                  <p className="stat-style">75%</p>
+                  <p className="stat-style">
+                    {mobile.best_practices * 100}
+                    %
+                  </p>
                   <p className="stat-style">Mobile</p>
                 </div>
               </div>
             </div>
           </div>
-      
-        </Breakpoint>
-      </div>
+                </Breakpoint>
+              </div>
+            );
+          });
+          return (
+            <div>
+              {reports}
+            </div>
+          );
+        }
+}
+      </Query>
     );
   }
 }
