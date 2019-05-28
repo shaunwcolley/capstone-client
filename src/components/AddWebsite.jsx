@@ -27,11 +27,6 @@ class AddWebsite extends Component {
     });
   }
 
-  handleSubmitClick = () => {
-    console.log(this.state.name);
-    console.log(this.state.url);
-  }
-
   render() {
     return (
       <div className="WebsiteContainerBox">
