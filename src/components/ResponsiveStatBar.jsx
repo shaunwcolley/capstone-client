@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Breakpoint, { setDefaultBreakpoints } from 'react-socks';
 import { Query } from 'react-apollo';
 import gql from 'graphql-tag';
+import colorCode from '../Utils/ColorCode';
 import './ResponsiveStatBar.css';
 
 setDefaultBreakpoints([
@@ -63,14 +64,14 @@ class ResponsiveStatBar extends Component {
             <div className="stat-display">
               <div className="column-style">
                 <div className="desktop-info">
-                  <p className="stat-style">
+                  <p className={colorCode(desktop.performance)}>
                     {desktop.performance * 100}
                     %
                   </p>
                   <p className="stat-style">Desktop</p>
                 </div>
                 <div className="mobile-info">
-                  <p className="stat-style">
+                  <p className={colorCode(mobile.performance)}>
                     {mobile.performance * 100}
                     %
                   </p>
@@ -79,14 +80,14 @@ class ResponsiveStatBar extends Component {
               </div>
               <div className="column-style">
                 <div className="desktop-info">
-                  <p className="stat-style">
+                  <p className={colorCode(desktop.seo)}>
                     {desktop.seo * 100}
                     %
                   </p>
                   <p className="stat-style">Desktop</p>
                 </div>
                 <div className="mobile-info">
-                  <p className="stat-style">
+                  <p className={colorCode(mobile.seo)}>
                     {mobile.seo * 100}
                     %
                   </p>
@@ -95,14 +96,14 @@ class ResponsiveStatBar extends Component {
               </div>
               <div className="column-style">
                 <div className="desktop-info">
-                  <p className="stat-style">
+                  <p className={colorCode(desktop.accessibility)}>
                     {desktop.accessibility * 100}
                     %
                   </p>
                   <p className="stat-style">Desktop</p>
                 </div>
                 <div className="mobile-info">
-                  <p className="stat-style">
+                  <p className={colorCode(mobile.accessibility)}>
                     {mobile.accessibility * 100}
                     %
                   </p>
@@ -111,14 +112,14 @@ class ResponsiveStatBar extends Component {
               </div>
               <div className="last-column-style">
                 <div className="desktop-info">
-                  <p className="stat-style">
+                  <p className={colorCode(desktop.best_practices)}>
                     {desktop.best_practices * 100}
                     %
                   </p>
                   <p className="stat-style">Desktop</p>
                 </div>
                 <div className="mobile-info">
-                  <p className="stat-style">
+                  <p className={colorCode(mobile.best_practices)}>
                     {mobile.best_practices * 100}
                     %
                   </p>
@@ -144,3 +145,6 @@ class ResponsiveStatBar extends Component {
 }
 
 export default ResponsiveStatBar;
+
+
+
