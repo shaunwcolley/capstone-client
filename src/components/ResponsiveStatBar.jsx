@@ -1,8 +1,16 @@
 import React, { Component } from 'react';
-import Breakpoint from 'react-socks';
+import Breakpoint, { setDefaultBreakpoints } from 'react-socks';
 import { Query } from 'react-apollo';
 import gql from 'graphql-tag';
 import './ResponsiveStatBar.css';
+
+setDefaultBreakpoints([
+  { xsmall: 0 }, // all mobile devices
+  { small: 576 }, // mobile devices (not sure which one's this big)
+  { medium: 768 }, // ipad, ipad pro, ipad mini, etc
+  { large: 1100 }, // smaller laptops
+  { xlarge: 1200 }, // laptops and desktops
+]);
 
 const GET_STATS = gql`
     query {
