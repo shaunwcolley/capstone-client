@@ -5,6 +5,7 @@ import TabletStatBar from './TabletStatbar';
 import StatColumns from './StatColumns';
 import DashboardButtons from './DashboardButtons';
 import Menu from './Menu';
+import RefreshData from './RefreshData'
 import './Dashboard.css';
 
 
@@ -18,6 +19,7 @@ class Dashboard extends Component {
             <MobileStatBar />
             <TabletStatBar />
             <ResponsiveStatBar />
+            <RefreshData />
         </div>
     )
   }
