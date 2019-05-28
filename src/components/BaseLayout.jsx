@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Menu from './Menu';
-// import {connect} from 'react-redux';
-// import {withRouter} from 'react-router-dom';
+import App from '../App';
 import './Menu.css';
 
 

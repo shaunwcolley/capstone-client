@@ -5,6 +5,7 @@
     font-size: 14px;
     color: black;
     width: 100%;
+    background-color: white;
 }
 .MobileStatbar {
     display: flex;
@@ -13,6 +14,7 @@
     box-shadow: 0px 1px 3px #e2dfdf;
     text-align: center;
     margin: 15px;
+    background-color: white;
 }
 .stat-display {
     display: flex;
@@ -54,6 +56,7 @@
     align-items: center;
     justify-content: center;
     height: max-content;
+    margin-right: 40px;
 }
 .mobile-info {
     display: flex;
@@ -76,6 +79,8 @@
 .last-column-style {
     display: flex;
     height: max-content;
+    width: 100%;
+    justify-content: center;
 }
 .desktop-mobile {
     display: flex;
@@ -144,7 +149,8 @@
 .stats {
     padding: 10px;
 }
-.tablet-flex {
+.flexing {
     display: flex;
     flex-wrap: wrap;
-}
+    justify-content: center;
+} 

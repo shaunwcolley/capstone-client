@@ -47,9 +47,9 @@ class TabletStatBar extends Component {
           const reports = methodStats.map((stat) => {
             const { desktop, mobile } = stat[0];
             return (
-                <div className="tablet-flex">
-                    <Breakpoint medium only>
-                <div className="MobileStatbar">
+              <div className="tablet-flex">
+              <Breakpoint medium only>
+                  <div className="MobileStatbar">
                   <p className="site-url">{desktop.website.url}</p>
                   <p className="last-report">{desktop.time_fetch}</p>
                   <div className="all-four-stats">
@@ -136,12 +136,13 @@ class TabletStatBar extends Component {
                   </div>
                 </div>
               </Breakpoint>
-                </div>
+              </div>
+              
               
             );
           });
           return (
-            <div>
+            <div className="flexing">
               {reports}
             </div>
           );

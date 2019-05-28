@@ -9,12 +9,11 @@
     color: white;
 }
 .menu-items {
-    position: relative;
     display: flex;
     align-items: center;
     padding: 0px;
     margin: 0px;
-    width: 100%;
+    width: 75%;
   
 }
 li {
@@ -23,12 +22,12 @@ li {
 .wayfinder {
     display: flex;
     position: absolute;
-    left: 175px;
+    left: 13%;
 }
 .logout {
     display: flex;
     position: absolute;
-    right: 175px;
+    right: 13%;
 }
 .sticky {
     position: fixed;

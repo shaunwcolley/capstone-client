@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
+import Breakpoint, { setDefaultBreakpoints } from 'react-socks';
+
 import './Menu.css';
-// import {connect} from 'react-redux';
-// import {withRouter} from 'react-router-dom';
 
 
 class Menu extends Component {
@@ -17,5 +17,6 @@ class Menu extends Component {
         )
     }
 }
+
 
 export default Menu;
