@@ -154,3 +154,12 @@
     flex-wrap: wrap;
     justify-content: center;
 } 
+.green {
+    color: green;
+}
+.orange {
+    color: orange;
+}
+.red {
+    color: red;
+}
