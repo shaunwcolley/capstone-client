@@ -1,8 +1,6 @@
 .SubmitBox {
   display: flex;
   justify-content: space-between;
-  margin-left: 25%;
-  margin-right: 25%;
 }
 
 .AddButton {
@@ -17,30 +15,27 @@
   width: 100px;
   height: 35px;
 }
-
+.WebsiteContainerBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 .WebsiteBox {
   display: flex;
   flex-direction: column;
-  margin-left: 30%;
-  margin-right: 30%;
   margin-top: 12%;
 }
 
 .WebsiteInputField {
   text-align: left;
-  margin-left: 25%;
-  margin-right: 25%;
   margin-top: 8px;
   border-radius: 5px;
-  border-style: solid;
-  border-width: thin;
+  border: solid 1px black;
   padding: 5px;
 }
 
 
 .WebsiteTitle {
   text-align: center;
-  margin-right: 20%;
-  margin-left: 7%;
   font-size: 18px;
 }
