@@ -47,7 +47,7 @@ class AddWebsite extends Component {
                 if (error) return <p>error...</p>;
                 if (data) {
                   return (
-                    <div>
+                    <div className='divcheck'>
                       <button type="button" className="AddButton" onClick={createWebsite}>Submit</button>
                       <p>{data.createWebsite.name} was added.</p>
                     </div>

@@ -11,7 +11,7 @@ class Menu extends Component {
             <div id="myHeader" className='menu'>
               <ul className='menu-items'>
                 <li  className='wayfinder'><NavLink to='/dashboard'>Wayfinder</NavLink></li>
-                <li className='logout'><NavLink to='/login'>Logout</NavLink></li>
+                <li className='logout'><NavLink to='/'>Logout</NavLink></li>
               </ul>
             </div>
         )
