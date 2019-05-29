@@ -5,6 +5,9 @@ import { ApolloClient } from 'apollo-client';
 import { HttpLink } from 'apollo-link-http';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { InMemoryCache } from 'apollo-cache-inmemory';
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
+import reducer from './store/reducer';
 import Breakpoint, { BreakpointProvider } from 'react-socks';
 import AddWebsite from './components/AddWebsite';
 import BaseLayout from './components/BaseLayout';
@@ -24,26 +27,30 @@ const client = new ApolloClient({
   link,
 });
 
-ReactDOM.render(
-  <BreakpointProvider>
-    <ApolloProvider client={client}>
-      <BrowserRouter>
-        <BaseLayout>
-          <Switch>
-            <Route path="/" exact component={App} />
-            <Route path="/login" component={Login} />
-            <Route path="/dashboard" component={Dashboard} />
-            <Route path="/addwebsite" component={AddWebsite} />
-          </Switch>
-        </BaseLayout>
-      </BrowserRouter>
-    </ApolloProvider>
-  </BreakpointProvider>,
+const store = createStore(reducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
+ReactDOM.render(
+
+    <BreakpointProvider>
+      <Provider store={store}>
+        <ApolloProvider client={client}>
+          <BrowserRouter>
+            <BaseLayout>
+              <Switch>
+                {/* <Route path="/" exact component={App} /> */}
+                <Route exact path="/" component={Login} />
+                <Route path="/dashboard" component={Dashboard} />
+                <Route path="/addwebsite" component={AddWebsite} />
+              </Switch>
+            </BaseLayout>
+          </BrowserRouter>
+        </ApolloProvider>
+      </Provider>
+    </BreakpointProvider>,
   document.getElementById('root'),
-);
+)  
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+serviceWorker.unregister()

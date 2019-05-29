@@ -9,6 +9,7 @@
 .LoginInputField {
   text-align: left;
   height: 20px;
+  width: 170px;
   margin-top: 8px;
   border-radius: 5px;
   border: solid black 1px;
@@ -16,9 +17,10 @@
 
 .LoginButton {
   text-align: center;
-  width: 100px;
+  width: 75px;
   padding: 5px;
   margin-top: 8px;
+  margin-right: 20px;
   border-radius: 20px;
   border: solid 1px;
   background-color: #5D68FE;
