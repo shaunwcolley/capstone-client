@@ -2,7 +2,7 @@ import React from 'react';
 
 export const MobileImage = () => <img
 sizes="(max-width: 1400px) 100vw, 1400px"
-srcset="
+srcSet="
 bump-collaboration-colleagues-1068523_tkxe64_c_scale,w_200.jpg 200w,
 bump-collaboration-colleagues-1068523_tkxe64_c_scale,w_353.jpg 353w,
 bump-collaboration-colleagues-1068523_tkxe64_c_scale,w_477.jpg 477w,
@@ -23,7 +23,7 @@ alt="" />;
 
 export const TabletImage = () => <img
 sizes="(max-width: 1400px) 100vw, 1400px"
-srcset="
+srcSet="
 bump-collaboration-colleagues-1068523_tkxe64_c_scale,w_200.jpg 200w,
 bump-collaboration-colleagues-1068523_tkxe64_c_scale,w_353.jpg 353w,
 bump-collaboration-colleagues-1068523_tkxe64_c_scale,w_477.jpg 477w,
@@ -43,7 +43,7 @@ alt="" />;
 
 export const DesktopImage = () => <img
 sizes="(max-width: 1400px) 100vw, 1400px"
-srcset="
+srcSet="
 bump-collaboration-colleagues-1068523_tkxe64_c_scale,w_200.jpg 200w,
 bump-collaboration-colleagues-1068523_tkxe64_c_scale,w_353.jpg 353w,
 bump-collaboration-colleagues-1068523_tkxe64_c_scale,w_477.jpg 477w,
