@@ -21,8 +21,6 @@ render() {
       <div className="filter-website-button">
         <div className="filter-button">
           <p>Filter:</p>
-          <button type="button" onClick={this.handleSortButtonAZ} className="a-z">A --> Z</button>
-          <button type="button" onClick={this.handleSortButtonZA} className="a-z">Z --> A</button>
           <button type="button" className="add-button"><Link to="/addwebsite">Add Website</Link></button>
         </div>
       </div>
@@ -45,3 +43,8 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 export default connect(null, mapDispatchToProps)(DashboardButtons);
+
+/*
+<button type="button" onClick={this.handleSortButtonAZ} className="a-z">A --> Z</button>
+<button type="button" onClick={this.handleSortButtonZA} className="a-z">Z --> A</button>
+*/
