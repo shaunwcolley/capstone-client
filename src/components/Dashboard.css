@@ -9,7 +9,7 @@
 }
 .performance {
     display: flex;
-    padding-left: 230px;
+    padding-left: 255px;
 }
 .seo {
     display: flex;
@@ -61,7 +61,6 @@ a {
 .filter-button {
     display: flex;
     height: 30px;
-    width: 125px;
     border-radius: 30px;
 }
 .a-z {
@@ -71,9 +70,5 @@ a {
     margin-top: 10px;
     margin-left: 10px;
     background-color: lightgrey;
-}
-.FLEXBITCH {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    font-size: 13px;
 }

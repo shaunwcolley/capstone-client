@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
+import moment from 'moment';
 import Breakpoint, { setDefaultBreakpoints } from 'react-socks';
 import './ResponsiveStatBar.css';
 import colorCode from '../Utils/ColorCode';
+
 
 class Data extends Component {
   render() {
@@ -25,20 +27,22 @@ class Data extends Component {
     <div className="stat-bar">
       <div className="site-info">
         <p className="site-url">{desktop.website.url}</p>
-        <p className="last-report">{desktop.time_fetch}</p>
+        <div className="last-report">
+          Last Report: {moment(desktop.time_fetch).format('MM/DD/YYYY')}
+        </div>
       </div>
       <div className="stat-display">
         <div className="column-style">
           <div className="desktop-info">
             <p className={colorCode(desktop.performance)}>
-              {desktop.performance * 100}
+              {Math.ceil(desktop.performance * 100)}
               %
             </p>
             <p className="stat-style">Desktop</p>
           </div>
           <div className="mobile-info">
             <p className={colorCode(mobile.performance)}>
-              {mobile.performance * 100}
+              {Math.ceil(mobile.performance * 100)}
               %
             </p>
             <p className="stat-style">Mobile</p>
@@ -47,14 +51,14 @@ class Data extends Component {
         <div className="column-style">
           <div className="desktop-info">
             <p className={colorCode(desktop.seo)}>
-              {desktop.seo * 100}
+              {Math.ceil(desktop.seo * 100)}
               %
             </p>
             <p className="stat-style">Desktop</p>
           </div>
           <div className="mobile-info">
             <p className={colorCode(mobile.seo)}>
-              {mobile.seo * 100}
+              {Math.ceil(mobile.seo * 100)}
               %
             </p>
             <p className="stat-style">Mobile</p>
@@ -63,14 +67,14 @@ class Data extends Component {
         <div className="column-style">
           <div className="desktop-info">
             <p className={colorCode(desktop.accessibility)}>
-              {desktop.accessibility * 100}
+              {Math.ceil(desktop.accessibility * 100)}
               %
             </p>
             <p className="stat-style">Desktop</p>
           </div>
           <div className="mobile-info">
             <p className={colorCode(mobile.accessibility)}>
-              {mobile.accessibility * 100}
+              {Math.ceil(mobile.accessibility * 100)}
               %
             </p>
             <p className="stat-style">Mobile</p>
@@ -79,14 +83,14 @@ class Data extends Component {
         <div className="last-column-style">
           <div className="desktop-info">
             <p className={colorCode(desktop.best_practices)}>
-              {desktop.best_practices * 100}
+              {Math.ceil(desktop.best_practices * 100)}
               %
             </p>
             <p className="stat-style">Desktop</p>
           </div>
           <div className="mobile-info">
             <p className={colorCode(mobile.best_practices)}>
-              {mobile.best_practices * 100}
+              {Math.ceil(mobile.best_practices * 100)}
               %
             </p>
             <p className="stat-style">Mobile</p>
