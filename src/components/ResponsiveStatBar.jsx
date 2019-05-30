@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import { setDefaultBreakpoints } from 'react-socks';
+import Breakpoint, { setDefaultBreakpoints } from 'react-socks';
 import { Query } from 'react-apollo';
+import Data from './Data'
 import gql from 'graphql-tag';
-import Data from './Data';
-
-// import colorCode from '../Utils/ColorCode';
+import colorCode from '../Utils/ColorCode';
+import { connect } from 'react-redux';
 import './ResponsiveStatBar.css';
 
 setDefaultBreakpoints([
@@ -14,6 +14,40 @@ setDefaultBreakpoints([
   { large: 1100 }, // smaller laptops
   { xlarge: 1200 }, // laptops and desktops
 ]);
+
+const GET_AZ_STATS = gql`
+  query {
+      sortWebsite {
+          website_id
+          website {
+              url
+          }
+          performance
+          accessibility
+          best_practices
+          seo
+          time_fetch
+          method
+      }
+  }
+  `;
+
+const GET_ZA_STATS = gql`
+    query {
+        sortWebsite {
+            website_id
+            website {
+                url
+            }
+            performance
+            accessibility
+            best_practices
+            seo
+            time_fetch
+            method
+        }
+    }
+    `;
 
 const GET_STATS = gql`
     query {
@@ -34,8 +68,39 @@ const GET_STATS = gql`
 
 class ResponsiveStatBar extends Component {
   render() {
-    return (
+    console.log(this.props.az)
+    if (this.props.az) {
+      return (
+      <Query query={GET_AZ_STATS}>
+        {({ data, loading, error }) => {
+          if (loading) return <p>loading...</p>;
+          if (error) return <p>error...</p>;
+          const { stats } = data;
+          console.log(stats)
+          return(
+            <Data stats = {stats}/>
+          )
+}
+}
+      </Query>
+)
+    } else if (this.props.za) {
+      return (
+      <Query query={GET_ZA_STATS}>
+        {({ data, loading, error }) => {
+          if (loading) return <p>loading...</p>;
+          if (error) return <p>error...</p>;
+          const { stats } = data;
+          return(
+            <Data stats = {stats}/>
+          )
+}
+}
+      </Query>
+)
+    } else
 
+    return (
       <Query query={GET_STATS}>
         {({ data, loading, error }) => {
           if (loading) return <p>loading...</p>;
@@ -51,4 +116,11 @@ class ResponsiveStatBar extends Component {
   }
 }
 
-export default ResponsiveStatBar;
+const mapStateToProps = (state) => {
+  return {
+    az: state.az,
+    za: state.za,
+  };
+}
+
+export default connect(mapStateToProps)(ResponsiveStatBar);
