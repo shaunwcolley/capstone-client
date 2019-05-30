@@ -78,9 +78,9 @@ a {
 }
 
 .errorDisplay {
-  display: flex;
+  width: 499px;
+  display:flex;
   align-items: center;
   justify-content: center;
-  width: 499px;
   color: red;
 }
