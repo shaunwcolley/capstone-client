@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import Breakpoint, { setDefaultBreakpoints } from 'react-socks';
+import { setDefaultBreakpoints } from 'react-socks';
 import { Query } from 'react-apollo';
-import Data from './Data'
 import gql from 'graphql-tag';
-import colorCode from '../Utils/ColorCode';
+import Data from './Data';
+
+// import colorCode from '../Utils/ColorCode';
 import './ResponsiveStatBar.css';
 
 setDefaultBreakpoints([

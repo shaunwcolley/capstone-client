@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import Breakpoint from 'react-socks';
 import { Query } from 'react-apollo';
-import colorCode from '../Utils/ColorCode';
 import gql from 'graphql-tag';
+import moment from 'moment';
+import colorCode from '../Utils/ColorCode';
+
 import './MobileStatBar.css';
 import './ResponsiveStatBar.css';
 
@@ -52,7 +54,9 @@ class TabletStatBar extends Component {
               <Breakpoint medium only>
                   <div className="MobileStatbar">
                   <p className="site-url">{desktop.website.url}</p>
-                  <p className="last-report">{desktop.time_fetch}</p>
+                  <p className="last-report-mobile">
+                    Last Report: {moment(desktop.time_fetch).format('MM/DD/YYYY')}
+                    </p>
                   <div className="all-four-stats">
                     <div className="top-stat-row">
                       <div className="top-left-stat-quandant">
@@ -60,14 +64,14 @@ class TabletStatBar extends Component {
                         <div className="desktop-mobile">
                           <div className="stats">
                             <p className={colorCode(desktop.performance)}>
-                              {desktop.performance * 100}
+                              {Math.ceil(desktop.performance * 100)}
                           %
                             </p>
                             <p className="stat-style">Desktop</p>
                           </div>
                           <div className="stats">
                             <p className={colorCode(mobile.performance)}>
-                              {mobile.performance * 100}
+                              {Math.ceil(mobile.performance * 100)}
                           %
                             </p>
                             <p className="stat-style">Mobile</p>
@@ -79,14 +83,14 @@ class TabletStatBar extends Component {
                         <div className="desktop-mobile">
                           <div className="stats">
                             <p className={colorCode(desktop.seo)}>
-                              {desktop.seo * 100}
+                              {Math.ceil(desktop.seo * 100)}
                           %
                             </p>
                             <p className="stat-style">Desktop</p>
                           </div>
                           <div className="stats">
                             <p className={colorCode(mobile.seo)}>
-                              {mobile.seo * 100}
+                              {Math.ceil(mobile.seo * 100)}
                           %
                             </p>
                             <p className="stat-style">Mobile</p>
@@ -100,14 +104,14 @@ class TabletStatBar extends Component {
                         <div className="desktop-mobile">
                           <div className="stats">
                             <p className={colorCode(desktop.accessibility)}>
-                              {desktop.accessibility * 100}
+                              {Math.ceil(desktop.accessibility * 100)}
                           %
                             </p>
                             <p className="stat-style">Desktop</p>
                           </div>
                           <div className="stats">
                             <p className={colorCode(mobile.accessibility)}>
-                              {mobile.accessibility * 100}
+                              {Math.ceil(mobile.accessibility * 100)}
                           %
                             </p>
                             <p className="stat-style">Mobile</p>
@@ -119,14 +123,14 @@ class TabletStatBar extends Component {
                         <div className="desktop-mobile">
                           <div className="stats">
                             <p className={colorCode(desktop.best_practices)}>
-                              {desktop.best_practices * 100}
+                              {Math.ceil(desktop.best_practices * 100)}
                           %
                             </p>
                             <p className="stat-style">Desktop</p>
                           </div>
                           <div className="stats">
                             <p className={colorCode(mobile.best_practices)}>
-                              {mobile.best_practices * 100}
+                              {Math.ceil(mobile.best_practices * 100)}
                           %
                             </p>
                             <p className="stat-style">Mobile</p>
