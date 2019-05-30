@@ -18,14 +18,14 @@ import BaseLayout from './components/BaseLayout';
 import Dashboard from './components/Dashboard';
 import Login from './components/Login';
 import authLink from './Utils/authLink';
-import requireAuth from './components/requireAuth'
+import requireAuth from './components/requireAuth';
 
 import './index.css';
 import * as serviceWorker from './serviceWorker';
 
 const cache = new InMemoryCache();
 const link = new HttpLink({
-  uri: 'http://localhost:8080/',
+  uri: 'https://poetic-wayfinder-server.herokuapp.com/',
 });
 
 const client = new ApolloClient({
