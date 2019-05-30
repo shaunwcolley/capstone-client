@@ -61,7 +61,6 @@ class TabletLogin extends Component {
                       <input type="text" className="LoginInputField" name="username" onChange={this.handleTextBoxChange} placeholder="username" />
                       <input type="password" className="LoginInputField" name="password" onChange={this.handleTextBoxChange} placeholder="password" />
                       <div className="login-button">
-                        <p>Forgot Password?</p>
                         <button type="button" onClick={login} className="LoginButton">Login</button>
                       </div>
                     </Fragment>
@@ -73,7 +72,6 @@ class TabletLogin extends Component {
                     <input type="text" className="LoginInputField" name="username" onChange={this.handleTextBoxChange} placeholder="username" />
                     <input type="password" className="LoginInputField" name="password" onChange={this.handleTextBoxChange} placeholder="password" />
                     <div className="login-button">
-                      <p>Forgot Password?</p>
                       <button type="button" onClick={login} className="LoginButton">Login</button>
                     </div>
                   </Fragment>
