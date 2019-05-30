@@ -5,7 +5,6 @@ export default function (ComposedComponent) {
   class Authenticate extends Component {
     constructor(props) {
       super(props)
-      console.log(this.props.isAuth)
       if(!this.props.isAuth) {
         this.props.history.push('/')
       }
