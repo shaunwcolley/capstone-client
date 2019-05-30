@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import './AddWebsite.css';
 import { Mutation } from 'react-apollo';
+import { NavLink } from 'react-router-dom';
+import { withRouter } from 'react-router-dom'
 import { ADD_WEBSITE } from '../Utils/mutations';
 
 class AddWebsite extends Component {
@@ -26,7 +28,7 @@ class AddWebsite extends Component {
           <input className="WebsiteInputField" name="name" onChange={this.handleTextBoxChange} placeholder="Website Name" />
           <input className="WebsiteInputField" name="url" onChange={this.handleTextBoxChange} placeholder="URL" />
           <div className="SubmitBox">
-            <p> Cancel </p>
+            <NavLink to='/dashboard'><button>Cancel</button></NavLink>
             <Mutation mutation={ADD_WEBSITE} variables={this.state}>
               {(createWebsite, { data, loading, error }) => {
                 if (loading) return <p>loading...</p>;
