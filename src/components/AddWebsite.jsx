@@ -28,7 +28,7 @@ class AddWebsite extends Component {
           <input className="WebsiteInputField" name="name" onChange={this.handleTextBoxChange} placeholder="Website Name" />
           <input className="WebsiteInputField" name="url" onChange={this.handleTextBoxChange} placeholder="URL" />
           <div className="SubmitBox">
-            <NavLink to='/dashboard'><button>Cancel</button></NavLink>
+            <NavLink to='/dashboard'><button className="cancel-button">Cancel</button></NavLink>
             <Mutation mutation={ADD_WEBSITE} variables={this.state}>
               {(createWebsite, { data, loading, error }) => {
                 if (loading) return <p>loading...</p>;
