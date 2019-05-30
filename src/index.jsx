@@ -3,17 +3,23 @@ import ReactDOM from 'react-dom';
 import { ApolloProvider } from 'react-apollo';
 import { ApolloClient } from 'apollo-client';
 import { HttpLink } from 'apollo-link-http';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { InMemoryCache } from 'apollo-cache-inmemory';
+
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
+
+import { BreakpointProvider } from 'react-socks';
+
 import reducer from './store/reducer';
-import Breakpoint, { BreakpointProvider } from 'react-socks';
 import AddWebsite from './components/AddWebsite';
 import BaseLayout from './components/BaseLayout';
 import Dashboard from './components/Dashboard';
 import Login from './components/Login';
-import App from './App';
+import authLink from './Utils/authLink';
+import requireAuth from './components/requireAuth'
+
 import './index.css';
 import * as serviceWorker from './serviceWorker';
 
@@ -24,7 +30,7 @@ const link = new HttpLink({
 
 const client = new ApolloClient({
   cache,
-  link,
+  link: authLink.concat(link),
 });
 
 const store = createStore(reducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
@@ -39,8 +45,8 @@ ReactDOM.render(
               <Switch>
                 {/* <Route path="/" exact component={App} /> */}
                 <Route exact path="/" component={Login} />
-                <Route path="/dashboard" component={Dashboard} />
-                <Route path="/addwebsite" component={AddWebsite} />
+                <Route path="/dashboard" component={requireAuth(Dashboard)} />
+                <Route path="/addwebsite" component={requireAuth(AddWebsite)} />
               </Switch>
             </BaseLayout>
           </BrowserRouter>
@@ -48,7 +54,7 @@ ReactDOM.render(
       </Provider>
     </BreakpointProvider>,
   document.getElementById('root'),
-)  
+)
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
