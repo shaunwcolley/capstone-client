@@ -1,16 +1,7 @@
 import React, { Component } from 'react';
 import './AddWebsite.css';
 import { Mutation } from 'react-apollo';
-import gql from 'graphql-tag';
-
-const ADD_WEBSITE = gql`
-mutation createWebsite($name: String!, $url: String!){
-  createWebsite(name: $name, url: $url) {
-    name,
-    url
-  }
-}
-`;
+import { ADD_WEBSITE } from '../Utils/mutations';
 
 class AddWebsite extends Component {
   constructor() {
@@ -44,7 +35,10 @@ class AddWebsite extends Component {
                   return (
                     <div className='divcheck'>
                       <button type="button" className="AddButton" onClick={createWebsite}>Submit</button>
-                      <p>{data.createWebsite.name} was added.</p>
+                      <p>
+                        {data.createWebsite.name}
+                        was added.
+                      </p>
                     </div>
                   );
                 }
