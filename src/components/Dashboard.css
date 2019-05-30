@@ -72,3 +72,15 @@ a {
     background-color: lightgrey;
     font-size: 13px;
 }
+
+.asterisks {
+  font-size: 10px;
+}
+
+.errorDisplay {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 499px;
+  color: red;
+}

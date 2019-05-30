@@ -62,6 +62,8 @@ const GET_STATS = gql`
             seo
             time_fetch
             method
+            error_code
+            error_message
         }
     }
 `;

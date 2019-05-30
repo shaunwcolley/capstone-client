@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import moment from 'moment';
 import Breakpoint, { setDefaultBreakpoints } from 'react-socks';
 import './ResponsiveStatBar.css';
@@ -21,6 +21,44 @@ class Data extends Component {
     }
     const reports = methodStats.map((stat) => {
       const { desktop, mobile } = stat[0];
+      if (desktop.error_code) {
+        return (
+          <div className="stat-bar-margin">
+            <Breakpoint large up>
+              <div className="stat-bar">
+                <div className="site-info">
+                  <p className="site-url">{desktop.website.url}</p>
+                    <div className="last-report">
+                      Last Report: {moment(desktop.time_fetch).format('MM/DD/YYYY')}
+                    </div>
+                  </div>
+                  <div className="stat-display">
+                    <div className="errorDisplay">ERROR: {desktop.error_code}, {desktop.error_message}</div>
+                  </div>
+                </div>
+            </Breakpoint>
+          </div>
+        )
+      }
+      if (mobile.error_code) {
+        return (
+          <div className="stat-bar-margin">
+            <Breakpoint large up>
+              <div className="stat-bar">
+                <div className="site-info">
+                  <p className="site-url">{desktop.website.url}</p>
+                    <div className="last-report">
+                      Last Report: {moment(desktop.time_fetch).format('MM/DD/YYYY')}
+                    </div>
+                  </div>
+                  <div className="stat-display">
+                    <div className="errorDisplay">ERROR: {mobile.error_code}, {mobile.error_message}</div>
+                  </div>
+                </div>
+            </Breakpoint>
+          </div>
+        )
+      }
       return (
         <div className="stat-bar-margin">
           <Breakpoint large up>
@@ -103,9 +141,9 @@ class Data extends Component {
       );
     });
     return(
-      <div>
+      <Fragment>
       {reports}
-      </div>
+      </Fragment>
     );
   }
 }
