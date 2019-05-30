@@ -1,9 +1,10 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import Breakpoint from 'react-socks';
 
 
-class DashboardButtons extends Component { 
+class DashboardButtons extends Component {
 
 handleSortButtonAZ = (e) => {
   this.props.handleSortButtonAZ();
@@ -15,6 +16,7 @@ handleSortButtonZA = (e) => {
 
 render() {
   return (
+    <Fragment>
     <div className="filter-add-website-row">
       <div className="filter-website-button">
         <div className="filter-button">
@@ -25,6 +27,10 @@ render() {
         </div>
       </div>
     </div>
+    <Breakpoint medium down>
+    <span><small className="asterisks">*Values are estimated and may vary. Run individual audits of low-performing sites.</small></span>
+    </Breakpoint>
+    </Fragment>
   );
 }
 }

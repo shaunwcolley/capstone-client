@@ -22,6 +22,8 @@ const GET_STATS = gql`
             seo
             time_fetch
             method
+            error_code
+            error_message
         }
     }
 `;
@@ -49,6 +51,40 @@ class TabletStatBar extends Component {
           }
           const reports = methodStats.map((stat) => {
             const { desktop, mobile } = stat[0];
+            if (desktop.error_code) {
+              return (
+                <div className="tablet-flex">
+                <Breakpoint medium only>
+                  <div className="MobileStatbar">
+                    <p className="site-url">{desktop.website.url}</p>
+                    <p className="last-report-mobile">
+                      Last Report: {moment(desktop.time_fetch).format('MM/DD/YYYY')}
+                      </p>
+                    <div className="all-four-stats">
+                        <p className="stat-name">ERROR: {desktop.error_code}, {desktop.error_message}</p>
+                    </div>
+                  </div>
+                </Breakpoint>
+                </div>
+              )
+            }
+            if (mobile.error_code) {
+              return (
+                <div className="tablet-flex">
+                <Breakpoint medium only>
+                  <div className="MobileStatbar">
+                    <p className="site-url">{desktop.website.url}</p>
+                    <p className="last-report-mobile">
+                      Last Report: {moment(desktop.time_fetch).format('MM/DD/YYYY')}
+                      </p>
+                    <div className="all-four-stats">
+                        <p className="stat-name">ERROR: {mobile.error_code}, {mobile.error_message}</p>
+                    </div>
+                  </div>
+                </Breakpoint>
+                </div>
+              )
+            }
             return (
               <div className="tablet-flex">
               <Breakpoint medium only>
@@ -142,8 +178,8 @@ class TabletStatBar extends Component {
                 </div>
               </Breakpoint>
               </div>
-              
-              
+
+
             );
           });
           return (
