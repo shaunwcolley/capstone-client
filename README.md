@@ -11,8 +11,8 @@ HTML, CSS, JavaScript, React.js, Redux.js, Node.js, Sequelize, Heroku, GraphQL, 
 
 <a href="https://poetic-wayfinder-client.herokuapp.com/">Click Here</a>
 
-**Login: ShaunC 
-Password: SCwayfinder**
+**Login: ShaunC**
+**Password: SCwayfinder**
 
 # Project Contributors
 
