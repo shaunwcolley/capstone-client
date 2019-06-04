@@ -33,14 +33,15 @@ GraphQL is a query language and runtime that can be used to build and expose API
 
 # Screenshots
 
-**Login Screen**
+**Dashboard**
 
-<img src="images/Login.png"/>
+<img src="images/Dashboard.png"/>
 
 **Add Website**
 
 <img src="images/AddWebsite.png"/>
 
-**Dashboard**
+**Login Screen**
 
-<img src="images/Dashboard.png"/>
+<img src="images/Login.png"/>
+
