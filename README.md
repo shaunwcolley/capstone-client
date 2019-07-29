@@ -18,7 +18,7 @@ HTML, CSS, JavaScript, React.js, Redux.js, Node.js, Sequelize, Heroku, GraphQL, 
 
 Gregory Priznar, Tim Goens, Shaun Colley
 
-# How it work
+# How it works
 <p>The application features secure login so the data is only accessible to verified users. After entering correct login credentials the user will be directed to the dashboard screen by clicking on the "Wayfinder" link in the menu. The dashboard displays the health statistics (Performance, SEO, Accessibility, Best Practices) for desktop and mobile versions of the website. You can add additional websites to monitor via the "Add Website" button. 
   
  **Cron Job** 
