@@ -25,7 +25,7 @@ import * as serviceWorker from './serviceWorker';
 
 const cache = new InMemoryCache();
 const link = new HttpLink({
-  uri: 'https://poetic-wayfinder-server.herokuapp.com/',
+  uri: 'https://webhealthtracker-api.herokuapp.com/',
 });
 
 const client = new ApolloClient({
