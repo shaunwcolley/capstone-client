@@ -12,6 +12,7 @@ HTML, CSS, JavaScript, React.js, Redux.js, Node.js, Sequelize, Heroku, GraphQL, 
 <a href="https://website-tracker.herokuapp.com">Click Here</a>
 
 **Login: ShaunC**
+
 **Password: SCwayfinder**
 
 # Project Contributors
